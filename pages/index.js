@@ -14,10 +14,7 @@ const Home = () => {
             h="100vh"
         >
             <LogoIcon color="black" boxSize="64px" />
-            {/* <Text>
-                Current user:{' '}
-                <Code>{auth.user ? auth.user.email : 'None'}</Code>
-            </Text> */}
+
             {auth.user ? (
                 <Button onClick={() => auth.signout()}>sign out</Button>
             ) : (
