@@ -36,8 +36,16 @@ const DashboardShell = ({ children }) => {
                     <Link>Feedback</Link>
                 </Stack>
                 <Flex alignItems="center">
-                    <Link mr={4}>Account</Link>
-                    <Avatar size="sm" src={auth.user.photoUrl} />
+                    {auth?.user && (
+                        <Button
+                            variant="ghost"
+                            mr={2}
+                            onClick={() => auth.signout()}
+                        >
+                            Logout
+                        </Button>
+                    )}
+                    <Avatar size="sm" src={auth?.user?.photoUrl} />
                 </Flex>
             </Flex>
             <Flex backgroundColor="gray.50" p={8} height="100vh">
