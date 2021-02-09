@@ -11,5 +11,5 @@ export default async (_, res) => {
         });
     });
 
-    res.status(200).json(sites);
+    res.status(200).json({ sites });
 };

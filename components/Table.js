@@ -38,6 +38,7 @@ export const Tr = (props) => (
 
 export const Table = (props) => (
     <Box
+        w="100%"
         as="table"
         textAlign="left"
         backgroundColor="white"
