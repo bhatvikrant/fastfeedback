@@ -15,7 +15,8 @@ export async function getStaticProps(ctx) {
     return {
         props: {
             initialFeedback: feedback
-        }
+        },
+        revalidate: 1
     };
 }
 
@@ -56,6 +57,7 @@ const SiteFeedback = ({ initialFeedback }) => {
         setAllFeedback([newFeedback, ...allFeedback]);
 
         createFeedback(newFeedback);
+        inputRef.current.value = '';
     };
     return (
         <Box
