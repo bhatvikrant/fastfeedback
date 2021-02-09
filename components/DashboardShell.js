@@ -1,19 +1,7 @@
-import {
-    Flex,
-    Link,
-    Stack,
-    Avatar,
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    Heading,
-    Box,
-    Text,
-    Button
-} from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { Flex, Link, Stack, Avatar, Button } from '@chakra-ui/react';
 import { LogoIcon } from '@/styles/customIcons';
 import { useAuth } from '@/lib/auth';
-import AddSiteModal from './AddSiteModal';
 
 const DashboardShell = ({ children }) => {
     const auth = useAuth();
@@ -32,9 +20,16 @@ const DashboardShell = ({ children }) => {
                     justifyContent="flex-start"
                     alignItems="center"
                 >
-                    <LogoIcon color="black" boxSize="24px" />
-                    <Link display="block">Sites</Link>
-                    <Link>Feedback</Link>
+                    <NextLink href="/">
+                        <LogoIcon color="black" boxSize="24px" />
+                    </NextLink>
+
+                    <NextLink href="/dashboard">
+                        <Link display="block">Sites</Link>
+                    </NextLink>
+                    <NextLink href="/feedback">
+                        <Link>Feedback</Link>
+                    </NextLink>
                 </Stack>
                 <Flex alignItems="center">
                     {auth?.user && (
@@ -57,21 +52,6 @@ const DashboardShell = ({ children }) => {
                     direction="column"
                     w="100%"
                 >
-                    <Breadcrumb>
-                        <BreadcrumbItem isCurrentPage>
-                            <BreadcrumbLink color="gray.700" fontSize="sm">
-                                sites
-                            </BreadcrumbLink>
-                        </BreadcrumbItem>
-                    </Breadcrumb>
-                    <Flex justifyContent="space-between">
-                        <Heading color="black" mb={4}>
-                            My Sites
-                        </Heading>
-                        <AddSiteModal >
-                        +Add Site
-                        </AddSiteModal>
-                    </Flex>
                     {children}
                 </Flex>
             </Flex>
