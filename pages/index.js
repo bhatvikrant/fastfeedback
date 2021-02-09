@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import { useAuth } from '@/lib/auth';
 import { LogoIcon } from '@/styles/customIcons';
@@ -17,6 +18,18 @@ const Home = () => {
             justifyContent="center"
             h="100vh"
         >
+            <Head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+          if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
+            window.location.href = "/dashboard"
+          }
+        `
+                    }}
+                />
+                <title>Fast Feedback</title>
+            </Head>
             <LogoIcon color="black" boxSize="64px" />
 
             {auth.user ? (
