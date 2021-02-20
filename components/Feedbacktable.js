@@ -1,7 +1,6 @@
 import { Box, Code, Switch } from '@chakra-ui/react';
 
 import { Table, Td, Tr, Th } from './Table';
-
 import RemoveButton from './RemoveButton';
 
 const FeedbackTable = ({ allFeedback }) => {
